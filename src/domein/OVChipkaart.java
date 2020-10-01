@@ -91,12 +91,19 @@ public class OVChipkaart {
 
     @Override
     public String toString() {
-        return "OVChipkaart{" + "\n" +
+        String a = "OVChipkaart{" + "\n" +
                 "kaart_nummer=" + kaart_nummer + "\n" +
                 ", geldig_tot=" + geldig_tot + "\n" +
                 ", klasse=" + klasse + "\n" +
                 ", saldo=" + saldo + "\n" +
-                ", reiziger_id=" + reiziger_id.getReiziger_id() +
-                '}';
+                ", reiziger_id=" + reiziger_id.getReiziger_id() + "\n" +
+                ", producten=\n";
+        for (Product p : product) {
+            a += p.getProduct_nummer() + ", ";
+        }
+        if (product.size() != 0) {
+            return a.substring(0, a.length()-2);
+        }
+        return a;
     }
 }

@@ -82,11 +82,19 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
+        String a = "Product{" +
                 "product_nummer=" + product_nummer +
                 ", naam='" + naam + '\'' +
                 ", beschrijving='" + beschrijving + '\'' +
-                ", prijs=" + prijs +
-                '}';
+                ", prijs=" + prijs + "\'" + "ovChipkaarten=" + "\n";
+        for (OVChipkaart ov : this.ovChipkaart) {
+            a += ov.getKaart_nummer() + ", ";
+        }
+        String b = a.substring(0, a.length()-2);
+        b += "}";
+        if (ovChipkaart.size() != 0) {
+            return b;
+        }
+        return a;
     }
 }
